@@ -38,8 +38,12 @@ div.cnt{
 section.content{
 	width: 250px;
 	margin:auto;
+}
+
+div.question{
 	border: 2px solid black;
 }
+
 section .head{
 	border-bottom: 1px solid black;
 	background-color: #8DD5FF;
