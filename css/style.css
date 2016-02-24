@@ -8,7 +8,7 @@ body{
 }
 
 div{
-	border: 1px solid chocolate;
+/*	border: 1px solid chocolate;*/
 }
 div.container{
 	width: 320px;
@@ -17,6 +17,7 @@ div.container{
 /*	background-color: #45a7f7;
 */	border-radius: 8px 8px 4px 4px;
 	position: relative;
+	border: 2px solid black;
 }
 
 header p{
@@ -38,13 +39,14 @@ div.cnt{
 section.content{
 	width: 250px;
 	margin:auto;
+	border:2px solid black;
 }
 
 div.question{
-	border: 2px solid black;
+	border-bottom: 1px solid black;
 }
 
-section .head{
+.head, .star_head{
 	border-bottom: 1px solid black;
 	background-color: #8DD5FF;
 }
@@ -66,6 +68,14 @@ footer{
 	color: #CE3700;
 }
 
+#restart{
+	cursor: pointer;
+}
+
 .hidden{
 	display: none;
+}
+
+i.icon-star{
+	color:yellow;
 }

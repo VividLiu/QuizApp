@@ -1,23 +1,47 @@
 $(document).ready(function(){
+	//submit answer
 	$("#qform").submit(function(e){
 		e.preventDefault();
-		console.log("submitted");
 
 		var ans = $("input:radio[name='answer']:checked").val();
 		console.log(ans);
 
+		//show right answer in alert box
+		if(ans == answerList[qIndex]){
+			score++;
+			alert("Correct!");
+		}else{
+			alert("Correct answer: " + answerList[qIndex]);
+		}
+
+		//update current question index
+		qIndex++;
+		if(qIndex < questionList.length){
+			$(".cnt span").text(qIndex+1);
+		}
+
+		//go to next question
+		showNextQuestion(qIndex);
+	});
+
+	//start a new game
+	$("#restart").click(function(e){
+		window.location.reload();
 	});
 
 })
 
-var questionList = [{
-		q: "How many oscars did the Titanic movie got?
-Eleven",
+var qIndex = 0; //index of current question
+var score = 0; //how many questions does the user answer correctly
+
+var questionList = [
+	{
+		q: "How many oscars did the Titanic movie got?",
 		a: ["7", "9", "11", "13"]
 	},
 	{
 		q: "What is the name of the prison in the film The Rock?",
-		a: ["Alcatraz", "b", "c", "d"]
+		a: [ "a","Alcatraz", "c", "d"]
 	},
 	{
 		q: "What is the name of the little dragon in the animated movie Mulan?",
@@ -30,8 +54,37 @@ Eleven",
 	{
 		q: "What is the name of Steven Spielberg s black-and-white-film about the second world war?",
 		a: ["Schindler s List", "b", "c", "d"]
-	}];
+	}
+];
 
-function showNextQuestion(){
-	$("p.head").text();
+var answerList = ["C", "B", "A", "A", "A"];
+
+
+function showNextQuestion(index){
+	//end of game
+	if(index == questionList.length){
+		//update score
+		$("#score").text(score);
+
+		$("i:nth-child(-n+" + score + ")").addClass("icon-star");
+
+		//
+		var contentElem = $(".end_message").clone();
+
+		$(".content").html("");
+		$(".content").html(contentElem.find("div"));
+		return ;
+	}
+
+	//update question and answer options
+	$("p.head").text((index+1) + "." + questionList[index].q);
+
+	$("p.a1 span").text(questionList[index].a[0]);
+	$("p.a2 span").text(questionList[index].a[1]);
+	$("p.a3 span").text(questionList[index].a[2]);
+	$("p.a4 span").text(questionList[index].a[3]);
+
+	//uncheck checked radio button
+	$("input:radio[name='answer']:checked").prop("checked", false);
+
 }

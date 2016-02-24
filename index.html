@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Quiz App</title>
+	<link rel="stylesheet" type="text/css" href="css/fontello.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -11,39 +12,50 @@
 		</header>
 
 		<div class="cnt">
-			<p>1/5 Question</p>
+			<p><span>1</span>/5 Question</p>
 		</div>
 		<section class="content">
 			<form id="qform">
 				<div class="question">
 					<p class="head">1. How many oscars did Titanic movie got?</p>
-					<p>
-						<input type="radio" name="answer" value="A">7
+					<p class="a1">
+						<input type="radio" name="answer" value="A">
+						<span>7</span>
 					</p>
-					<p>
-						<input type="radio" name="answer" value="B">9
+					<p class="a2">
+						<input type="radio" name="answer" value="B">
+						<span>9</span>
 					</p>
-					<p>
-						<input type="radio" name="answer" value="C">11
+					<p class="a3">
+						<input type="radio" name="answer" value="C">
+						<span>11</span>
 					</p>
-					<p>
-						<input type="radio" name="answer" value="D">13
+					<p class="a4">
+						<input type="radio" name="answer" value="D">
+						<span>13</span>
 					</p>
 				</div>	
 			<div class="botBtn">
-				<button id="ntBt">Next</button>
+				<button type="sub"id="nextBt">Next</button>
 			</div>
 			</form>
 		</section>
 		<footer>
-			<p>+ Start a New Game</p>
+			<p id="restart">+ Start a New Game</p>
 		</footer>
 
 		<!-- hidden template -->
 		<section class="end_message hidden">
-			<p class="head">stars</p>
-			<p>Congradulation!<br>You got 3 points</p>
-
+			<div>
+				<p class="star_head">
+					<i class="icon-star-empty"></i>
+					<i class="icon-star-empty"></i>
+					<i class="icon-star-empty"></i>
+					<i class="icon-star-empty"></i>
+					<i class="icon-star-empty"></i>
+				</p>
+				<p>Congradulation!<br>You got <span id="score">3</span> points</p>
+			</div>
 		</section>
 
 	</div>
