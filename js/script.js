@@ -57,7 +57,7 @@ var questionList = [
 	}
 ];
 
-var answerList = ["C", "B", "A", "A", "A"];
+var answerList = ["11", "Alcatraz", "Mushu", "Captain Picard", "Schindler s List"];
 
 
 function showNextQuestion(index){
@@ -75,6 +75,12 @@ function showNextQuestion(index){
 		$(".content").html(contentElem.find("div"));
 		return ;
 	}
+
+	//update input value
+	$("p.a1 input").val(questionList[index].a[0]);
+	$("p.a2 input").val(questionList[index].a[1]);
+	$("p.a3 input").val(questionList[index].a[2]);
+	$("p.a4 input").val(questionList[index].a[3]);
 
 	//update question and answer options
 	$("p.head").text((index+1) + "." + questionList[index].q);
